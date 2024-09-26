@@ -1,0 +1,29 @@
+CP001 - Iniciar sesión en orangeHRM
+
+Scenario: Iniciar sesión en orangeHRM
+  Given Inicio sesión con las credenciales de "Admin"
+  And Ingreso el Id "Admin" y la contraseña "admin123"
+  And clic en "Login"
+  Then Se ingresa al menú principal
+
+
+CP002 - Crear empleado en orangeHRM
+
+Scenario: Crear un nuevo empleado
+  Given Inicio sesión con las credenciales de "Admin"
+  When Registro el empleado con nombres y apellidos "Daniela Roxana Espinoza Huaman"
+  And Ingreso a la opción "Recruitment"
+  And clic en "Add+"
+  And completar los campos obligatorios
+  And clic en "Save"
+  Then Se visualiza a "Daniela Roxana Espinoza Huaman" en la lista de empleados
+
+
+CP003 - Visualizar empleado en orangeHRM
+
+Scenario: Visualizar la ficha del nuevo empleado
+  Given Inicio sesión con las credenciales de "Admin"
+  When Busco el empleado con nombres y apellidos "Daniela Roxana Espinoza Huaman"
+  And clic en "Date of application" para filtrar
+  And clic en "Ver"
+  Then Se visualiza la ficha de "Daniela Roxana Espinoza Huaman"
